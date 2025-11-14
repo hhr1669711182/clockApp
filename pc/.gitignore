@@ -1,0 +1,16 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+/dist*
+pnpm-debug
+stats.html
+.idea
+
+types/auto-imports.d.ts
+types/components.d.ts
+.vscode/*
+/mock*
+scripts/templates*
+scripts/api-docs

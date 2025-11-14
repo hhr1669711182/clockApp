@@ -1,0 +1,1838 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "天维尔微服务APIs",
+        "version": "1.1.0",
+        "title": "天维尔微服务APIs",
+        "termsOfService": "http://www.telewave.com.cn",
+        "contact": {
+            "name": "天维尔成都研发中心",
+            "url": "http://www.telewave.com.cn",
+            "email": "telewave@dingtalk.com"
+        }
+    },
+    "host": "192.168.170.75:8800",
+    "basePath": "/twms-service-remotesupervision",
+    "tags": [
+        {
+            "name": "关键字",
+            "description": "Srvc Maintenance Keyword Controller"
+        },
+        {
+            "name": "维保附件查询",
+            "description": "Srvc Maintenancedept Ref Controller"
+        }
+    ],
+    "paths": {
+        "/maintenanceKeyword/add": {
+            "post": {
+                "tags": [
+                    "关键字"
+                ],
+                "summary": "关键字新增",
+                "description": "关键字新增",
+                "operationId": "addUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "srvcMaintenanceKeywordDto",
+                        "description": "srvcMaintenanceKeywordDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/维保关键词信息表(南宁维保模块)"
+                        }
+                    }
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果«boolean»"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/maintenanceKeyword/edit": {
+            "post": {
+                "tags": [
+                    "关键字"
+                ],
+                "summary": "关键字编辑",
+                "description": "关键字编辑",
+                "operationId": "editUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "srvcMaintenanceKeywordDto",
+                        "description": "srvcMaintenanceKeywordDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/维保关键词信息表(南宁维保模块)"
+                        }
+                    }
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果«boolean»"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/maintenanceKeyword/key/{id}": {
+            "get": {
+                "tags": [
+                    "关键字"
+                ],
+                "summary": "关键字详情信息",
+                "description": "关键字详情信息",
+                "operationId": "keyUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "主键",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果«维保关键词信息表(南宁维保模块)»"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/maintenanceKeyword/page": {
+            "post": {
+                "tags": [
+                    "关键字"
+                ],
+                "summary": "分页查询",
+                "description": "分页查询",
+                "operationId": "pageUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "requestPage",
+                        "description": "requestPage",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/分页查询«维保关键词信息表(南宁维保模块)»"
+                        }
+                    }
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果«IPage«维保关键词信息表(南宁维保模块)»»"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/maintenancedeptRef/completeMaintenanceInspection": {
+            "put": {
+                "tags": [
+                    "维保附件查询"
+                ],
+                "summary": "完成维保检查",
+                "description": "完成维保检查",
+                "operationId": "completeMaintenanceInspectionUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "bgid",
+                        "description": "bgid",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/maintenancedeptRef/mapDataList": {
+            "get": {
+                "tags": [
+                    "维保附件查询"
+                ],
+                "summary": "提供地图使用维保信息列表",
+                "description": "提供地图使用维保信息列表",
+                "operationId": "mapDataListUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果«List«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»»"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/maintenancedeptRef/page": {
+            "post": {
+                "tags": [
+                    "维保附件查询"
+                ],
+                "summary": "维保附件查询分页查询",
+                "description": "维保附件查询分页查询",
+                "operationId": "pageUsingPOST_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "requestPage",
+                        "description": "requestPage",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/分页查询«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»"
+                        }
+                    }
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果«IPage«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»»"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/maintenancedeptRef/wbdwPage": {
+            "post": {
+                "tags": [
+                    "维保附件查询"
+                ],
+                "summary": "指定维保单位历史记录查询",
+                "description": "指定维保单位历史记录查询",
+                "operationId": "wbdwPageUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "requestPage",
+                        "description": "requestPage",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/分页查询«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»"
+                        }
+                    }
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果«IPage«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»»"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/maintenancedeptRef/wbfxglPage": {
+            "post": {
+                "tags": [
+                    "维保附件查询"
+                ],
+                "summary": "维保风险管理分页查询",
+                "description": "维保风险管理分页查询",
+                "operationId": "wbfxglPageUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "requestPage",
+                        "description": "requestPage",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/分页查询«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»"
+                        }
+                    }
+                ],
+                "responses": {
+                    "1000": {
+                        "description": "请求成功。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1100": {
+                        "description": "请求失败。（可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1101": {
+                        "description": "请求失败，Token失效。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1102": {
+                        "description": "请求失败，密钥认证错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1103": {
+                        "description": "请求失败，用户信息过期。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1104": {
+                        "description": "请求失败，用户名或密码错误。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1105": {
+                        "description": "请求失败，无效的用户。（记录状态为已删除或无该用户）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1106": {
+                        "description": "请求失败，用户权限不足。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1107": {
+                        "description": "请求失败，缺少必要参数，或者参数值格式不正确。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1108": {
+                        "description": "请求失败，附件上传失败。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1109": {
+                        "description": "请求失败，附件大小超过最大可接受的范围。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1110": {
+                        "description": "请求失败， IP已被限制访问。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1111": {
+                        "description": "请求失败，请求接口过于频繁。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1112": {
+                        "description": "请求失败，请求的次数超过了配额限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1113": {
+                        "description": "请求失败，当前接口处于停服维护状态，请稍后重试。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1114": {
+                        "description": "请求失败，数据库操作出错。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1115": {
+                        "description": "请求失败，超出分页最大条数限制。",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1116": {
+                        "description": "请求失败，未知异常",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "1200": {
+                        "description": "请求失败，系统出错。（一般catch里面的系统异常，可自定义提示信息）",
+                        "schema": {
+                            "$ref": "#/definitions/返回值code对应状态代码"
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/返回结果«IPage«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»»"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "IPage«维保关键词信息表(南宁维保模块)»": {
+            "type": "object",
+            "properties": {
+                "current": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "pages": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/维保关键词信息表(南宁维保模块)"
+                    }
+                },
+                "searchCount": {
+                    "type": "boolean"
+                },
+                "size": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "IPage«维保关键词信息表(南宁维保模块)»"
+        },
+        "IPage«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»": {
+            "type": "object",
+            "properties": {
+                "current": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "pages": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)"
+                    }
+                },
+                "searchCount": {
+                    "type": "boolean"
+                },
+                "size": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "IPage«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»"
+        },
+        "SrvcPersonDo": {
+            "type": "object",
+            "properties": {
+                "sc": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "时长（单位秒）"
+                },
+                "wbryid": {
+                    "type": "string",
+                    "description": "维保人员ID"
+                },
+                "wbrymc": {
+                    "type": "string",
+                    "description": "维保人员名称"
+                }
+            },
+            "title": "SrvcPersonDo"
+        },
+        "分页查询«维保关键词信息表(南宁维保模块)»": {
+            "type": "object",
+            "properties": {
+                "currentPage": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "当前页码",
+                    "minimum": 1.0,
+                    "exclusiveMinimum": false
+                },
+                "pageSize": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "页数据条数",
+                    "minimum": 0.0,
+                    "maximum": 100.0,
+                    "exclusiveMinimum": false,
+                    "exclusiveMaximum": false
+                },
+                "query": {
+                    "description": "查询条件",
+                    "$ref": "#/definitions/维保关键词信息表(南宁维保模块)"
+                }
+            },
+            "title": "分页查询«维保关键词信息表(南宁维保模块)»"
+        },
+        "分页查询«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»": {
+            "type": "object",
+            "properties": {
+                "currentPage": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "当前页码",
+                    "minimum": 1.0,
+                    "exclusiveMinimum": false
+                },
+                "pageSize": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "页数据条数",
+                    "minimum": 0.0,
+                    "maximum": 100.0,
+                    "exclusiveMinimum": false,
+                    "exclusiveMaximum": false
+                },
+                "query": {
+                    "description": "查询条件",
+                    "$ref": "#/definitions/维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)"
+                }
+            },
+            "title": "分页查询«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»"
+        },
+        "维保关键词信息表(南宁维保模块)": {
+            "type": "object",
+            "required": [
+                "cjryhzh",
+                "fxdj",
+                "gjc",
+                "gjcid",
+                "jlzt",
+                "sfzdfsdx",
+                "ywxtly",
+                "zt"
+            ],
+            "properties": {
+                "cjryhzh": {
+                    "type": "string",
+                    "description": "创建人用户帐号"
+                },
+                "cjsj": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "创建时间"
+                },
+                "fxdj": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": " 风险等级, 1低风险, 2中风险, 3高风险"
+                },
+                "gjc": {
+                    "type": "string",
+                    "description": "关键词"
+                },
+                "gjcid": {
+                    "type": "string",
+                    "description": "主键ID"
+                },
+                "jlzt": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1,
+                    "description": "记录状态0: 已删除  1: 可用"
+                },
+                "sfzdfsdx": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": " 是否自动发送短信, 0否, 1是"
+                },
+                "xgryhzh": {
+                    "type": "string",
+                    "description": "修改人用户账号"
+                },
+                "ywxtly": {
+                    "type": "string",
+                    "description": "数据归属业务系统来源"
+                },
+                "zhgxsj": {
+                    "type": "string",
+                    "description": "数据最后更新时间"
+                },
+                "zt": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": " 启用状态, 0未启用, 1启用"
+                }
+            },
+            "title": "维保关键词信息表(南宁维保模块)"
+        },
+        "维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)": {
+            "type": "object",
+            "required": [
+                "bgid",
+                "cjryhzh",
+                "dljd",
+                "dlwd",
+                "jlzt",
+                "qyid",
+                "refId",
+                "sfyfsdx",
+                "sfzxbgbz",
+                "ssxfjgid",
+                "wbdwid",
+                "ywxtly",
+                "zddwXzqhdm",
+                "zddwid",
+                "zddwlx",
+                "zddwmc",
+                "zqZt"
+            ],
+            "properties": {
+                "bgid": {
+                    "type": "string",
+                    "description": "报告ID，引用srvc_enterprise_info.qyid"
+                },
+                "cjryhzh": {
+                    "type": "string",
+                    "description": "创建人用户帐号"
+                },
+                "cjsj": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "创建时间"
+                },
+                "dljd": {
+                    "type": "number",
+                    "description": "高地大化重点单位_地理经度(wgs84)"
+                },
+                "dlwd": {
+                    "type": "number",
+                    "description": "高地大化重点单位_地理纬度(wgs84)"
+                },
+                "endTime": {
+                    "type": "string",
+                    "description": "结束维保时间"
+                },
+                "fjglidList": {
+                    "type": "array",
+                    "description": "附件关联id数组",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "fxdj": {
+                    "type": "string",
+                    "description": "风险等级, 1无风险, 2低风险, 3中风险, 4高风险"
+                },
+                "fxsbx": {
+                    "type": "string",
+                    "description": "风险识别项"
+                },
+                "jlzt": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1,
+                    "description": "记录状态0: 已删除  1: 可用"
+                },
+                "qyid": {
+                    "type": "string",
+                    "description": "企业单位ID，引用srvc_enterprise_info.qyid"
+                },
+                "refId": {
+                    "type": "string",
+                    "description": "主键ID"
+                },
+                "sfyfsdx": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "高地大化重点单位_短信发送状态"
+                },
+                "sfzxbgbz": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否最新报告标志, 0否，1是"
+                },
+                "ssxfjgid": {
+                    "type": "string",
+                    "description": "高地大化重点单位_所属消防机构ID"
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "开始维保时间"
+                },
+                "wbdwid": {
+                    "type": "string",
+                    "description": "维保单位ID"
+                },
+                "wbdwmc": {
+                    "type": "string",
+                    "description": "维保单位名称"
+                },
+                "wbry": {
+                    "type": "string",
+                    "description": "维保人员姓名"
+                },
+                "wbrydkscList": {
+                    "type": "array",
+                    "description": "人员打卡时长数组",
+                    "items": {
+                        "$ref": "#/definitions/SrvcPersonDo"
+                    }
+                },
+                "wbryid": {
+                    "type": "string",
+                    "description": "维保人员id"
+                },
+                "wbsj": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "维保时间"
+                },
+                "xgryhzh": {
+                    "type": "string",
+                    "description": "修改人用户账号"
+                },
+                "ywxtly": {
+                    "type": "string",
+                    "description": "数据归属业务系统来源"
+                },
+                "zddwXzqhdm": {
+                    "type": "string",
+                    "description": "高地大化重点单位_所在行政区划代码"
+                },
+                "zddwXzqhdmValue": {
+                    "type": "string",
+                    "description": "行政区划代码名称"
+                },
+                "zddwid": {
+                    "type": "string",
+                    "description": "单位ID，引用接处警base模式下的高层建筑、地下建筑、大型综合体、大型化工单位、住宅小区、自建房、重点单位的ID"
+                },
+                "zddwlx": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "高地大化重点单位自定义类型"
+                },
+                "zddwmc": {
+                    "type": "string",
+                    "description": "高地大化及重点单位名称"
+                },
+                "zhgxsj": {
+                    "type": "string",
+                    "description": "数据最后更新时间"
+                },
+                "zqZt": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "高地大化重点单位_执勤_风险状态"
+                },
+                "zt": {
+                    "type": "string",
+                    "description": "维保检查状态: 0维保中，1已签发，2已删除，4待维保人员签字，5待甲方签字，6完成维保检查"
+                }
+            },
+            "title": "维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)"
+        },
+        "返回结果": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "代码"
+                },
+                "data": {
+                    "type": "object",
+                    "description": "数据"
+                },
+                "msg": {
+                    "type": "object",
+                    "description": "提示消息"
+                }
+            },
+            "title": "返回结果"
+        },
+        "返回结果«IPage«维保关键词信息表(南宁维保模块)»»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "代码"
+                },
+                "data": {
+                    "description": "数据",
+                    "$ref": "#/definitions/IPage«维保关键词信息表(南宁维保模块)»"
+                },
+                "msg": {
+                    "type": "object",
+                    "description": "提示消息"
+                }
+            },
+            "title": "返回结果«IPage«维保关键词信息表(南宁维保模块)»»"
+        },
+        "返回结果«IPage«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "代码"
+                },
+                "data": {
+                    "description": "数据",
+                    "$ref": "#/definitions/IPage«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»"
+                },
+                "msg": {
+                    "type": "object",
+                    "description": "提示消息"
+                }
+            },
+            "title": "返回结果«IPage«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»»"
+        },
+        "返回结果«List«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "代码"
+                },
+                "data": {
+                    "type": "array",
+                    "description": "数据",
+                    "items": {
+                        "$ref": "#/definitions/维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)"
+                    }
+                },
+                "msg": {
+                    "type": "object",
+                    "description": "提示消息"
+                }
+            },
+            "title": "返回结果«List«维保单位、企业单位、高地大化重点单位关联表(南宁维保模块)»»"
+        },
+        "返回结果«boolean»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "代码"
+                },
+                "data": {
+                    "type": "boolean",
+                    "description": "数据"
+                },
+                "msg": {
+                    "type": "object",
+                    "description": "提示消息"
+                }
+            },
+            "title": "返回结果«boolean»"
+        },
+        "返回结果«维保关键词信息表(南宁维保模块)»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "代码"
+                },
+                "data": {
+                    "description": "数据",
+                    "$ref": "#/definitions/维保关键词信息表(南宁维保模块)"
+                },
+                "msg": {
+                    "type": "object",
+                    "description": "提示消息"
+                }
+            },
+            "title": "返回结果«维保关键词信息表(南宁维保模块)»"
+        }
+    }
+}

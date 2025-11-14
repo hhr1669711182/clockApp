@@ -1,0 +1,66 @@
+<!--
+ * @Author: {{author}}
+ * @Date: {{date}}
+ * @LastEditTime: {{date}}
+ * @LastEditors: {{author}}
+ * @Description: {{description}}
+ * @FilePath: {{filePath}}
+-->
+<template>
+  <div class="flex flex-row gap-4">
+    {{#if hasTree}}
+    <div class="w-[20%] min-w-[100px]">
+      <Tree v-bind="orgTreeProps" />
+    </div>
+    {{/if}}
+    <div class="{{#if hasTree}}w-auto{{else}}w-full{{/if}}">
+      {{#if hasSearch}}
+      <Search v-bind="searchForm" />
+      {{/if}}
+      <Table v-bind="tableProps" />
+    </div>
+  </div>
+</template>
+
+<script lang="tsx" setup>
+import { TableColumn } from '@/components/Table'
+import { FormSchema } from '@/components/Form'
+
+{{#if hasTree}}
+const orgTreeProps = reactive({
+  data: {{{treeData}}},
+  treeProps: {
+    props: {
+      children: 'children',
+      label: 'name',
+      key: 'id'
+    },
+    defaultExpandedKeys: [1, 2],
+    onCheckChange: (checkedKeys: number[], checkedNodes: any[]) => {
+      console.log(checkedKeys, checkedNodes)
+    }
+  },
+  height: '100%',
+  width: '100%'
+})
+{{/if}}
+
+{{#if hasSearch}}
+const searchForm = reactive({
+  isCol: false,
+  schema: {{{searchSchema}}} as FormSchema[]
+})
+{{/if}}
+
+const tableProps = reactive({
+  currentPage: 1,
+  pageSize: 10,
+  total: 0,
+  border: false,
+  cardWrapClass: 'w-[100%]',
+  columns: {{{tableColumns}}} as TableColumn[],
+  data: {{{tableData}}}
+})
+</script>
+
+<style lang="less" scoped></style>

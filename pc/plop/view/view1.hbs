@@ -1,0 +1,285 @@
+<template>
+  <el-card class="tw-paging-card">
+    <SearchForm label-width="90px" @search="search" @reset="reset">
+      <el-form-item label="警单编号：">
+        <el-input v-model="query.alarmNo" placeholder="请输入"></el-input>
+      </el-form-item>
+      <el-form-item label="警情判断：">
+        <el-select v-model="query.realAlarm" clearable placeholder="请选择">
+          <el-option label="真警" :value="true"></el-option>
+          <el-option label="假警" :value="false"></el-option>
+        </el-select>
+      </el-form-item>
+
+      <el-form-item label="灾害类型：">
+        <el-select v-model="query.disasterType" clearable placeholder="请选择">
+          <el-option
+            v-for="(item, index) in disasterTypeDic.list"
+            :key="index"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+      </el-form-item>
+
+      <el-form-item label="灾害等级：">
+        <el-select v-model="query.disasterLevel" clearable placeholder="请选择">
+          <el-option
+            v-for="(item, index) in disasterLevelDic.list"
+            :key="index"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+      </el-form-item>
+
+      <el-form-item label="警情状态：">
+        <el-select v-model="query.alarmStatus" clearable placeholder="请选择">
+          <el-option
+            v-for="(item, index) in alarmStatusArr"
+            :key="index"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="报警时间：">
+        <DateTimeRange v-model:begin="query.alarmTimeBegin" v-model:end="query.alarmTimeEnd" />
+      </el-form-item>
+    </SearchForm>
+
+    <el-button v-auth="['handle_alarm_add']" type="primary" @click="$router.push(`/handleAlarm/add`)"
+      >警情录入</el-button
+    >
+
+    <!-- <el-tabs v-model="activeName" type="card" style="width: 100%">
+        <el-tab-pane label="待结案（300）" name="first"></el-tab-pane>
+        <el-tab-pane label="已结案（30）" name="second"></el-tab-pane>
+      </el-tabs> -->
+
+    <TwTable v-loading="loading" :data="searchResult.list" class="alarm-table">
+      <el-table-column type="index" label="序号" width="55px" />
+      <el-table-column label="警单编号" prop="alarmNo" show-overflow-tooltip />
+
+      <el-table-column label="警情判断" show-overflow-tooltip width="80px">
+        <template #default="{ row }">
+          {{ row.realAlarm ? '真警' : '假警' }}
+        </template>
+      </el-table-column>
+
+      <el-table-column label="灾害类型" show-overflow-tooltip width="85px">
+        <template #default="{ row }">
+          {{ disasterTypeDic[row.disasterType] || '--' }}
+        </template>
+      </el-table-column>
+
+      <el-table-column label="灾害等级" p width="80px">
+        <template #default="{ row }">
+          <DisasterLeave :label="disasterLevelDic[row.disasterLevel] as string || ''" />
+        </template>
+      </el-table-column>
+
+      <el-table-column label="警情状态" show-overflow-tooltip width="80px">
+        <template #default="{ row }">
+          <AlarmStatus :alarm-status="row.alarmStatus"></AlarmStatus>
+        </template>
+      </el-table-column>
+      <el-table-column label="灾害地址" prop="alarmAddress" show-overflow-tooltip />
+      <el-table-column label="联系电话" prop="alarmPhone" show-overflow-tooltip />
+      <el-table-column label="报警时间" prop="alarmTime" show-overflow-tooltip width="170px" />
+      <el-table-column label="受理人" prop="acceptorName" show-overflow-tooltip width="75px" />
+
+      <el-table-column label="操作" width="190px">
+        <template #default="{ row }">
+          <el-link v-auth="['handle_alarm_detail']" type="primary" :underline="false" @click="oneKeyAlarm(row)"
+            >一键上报</el-link
+          >
+          <el-link
+            v-auth="['handle_alarm_detail']"
+            type="primary"
+            :underline="false"
+            @click="$router.push(`/handleAlarm/detail/${row.id}`)"
+            >详情</el-link
+          >
+          <el-link
+            v-auth="['handle_alarm_add']"
+            :disabled="row.alarmStatus === 3"
+            type="primary"
+            :underline="false"
+            @click="$router.push(`/handleAlarm/add/${row.id}`)"
+            >编辑</el-link
+          >
+
+          <el-dropdown
+            v-auth="[
+              'handle_alarm_dispatch',
+              'handle_alarm_dispatch_record',
+              'handle_alarm_finish',
+              'handle_alarm_del',
+            ]"
+            @command="handleCommand"
+          >
+            <div class="el-dropdown-link">
+              <el-icon>
+                <el-icon><MoreFilled /></el-icon>
+              </el-icon>
+            </div>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <span v-auth="['handle_alarm_dispatch']">
+                  <el-dropdown-item
+                    :disabled="row.alarmStatus === 3"
+                    :command="{
+                      event: 'goToDispatch',
+                      data: row,
+                    }"
+                    >预案调派</el-dropdown-item
+                  >
+                </span>
+
+                <span v-auth="['handle_alarm_dispatch_record']">
+                  <el-dropdown-item
+                    :disabled="!row.dispatched"
+                    :command="{
+                      event: 'goToDispatchRecord',
+                      data: row,
+                    }"
+                    >调派记录</el-dropdown-item
+                  >
+                </span>
+
+                <span v-auth="['handle_alarm_finish']">
+                  <el-dropdown-item
+                    :disabled="row.alarmStatus === 3"
+                    :command="{
+                      event: 'closingCase',
+                      data: row,
+                    }"
+                    >结案</el-dropdown-item
+                  >
+                </span>
+                <span v-auth="['handle_alarm_del']">
+                  <el-dropdown-item
+                    :disabled="row.alarmStatus === 3"
+                    :command="{
+                      event: 'deleteAlarm',
+                      data: row,
+                    }"
+                    >删除</el-dropdown-item
+                  >
+                </span>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </template>
+      </el-table-column>
+    </TwTable>
+    <el-pagination
+      :current-page="searchParams.currentPage"
+      :page-size="searchParams.pageSize"
+      :total="searchResult.totalCount"
+      :page-sizes="[10, 15, 20, 50]"
+      layout="total, sizes, prev, pager, next, jumper"
+      @current-change="getList"
+      @size-change="onSizeChange"
+    >
+    </el-pagination>
+
+    <twDialog v-model="showClosingCase" :close-on-click-modal="false" destroy-on-close title="结案">
+      <ClosingCase :row-id="clickRow.id" @cancel="showClosingCase = false" @submit="submitClosingCase" />
+    </twDialog>
+  </el-card>
+</template>
+
+<script lang="ts" setup>
+import usePaging from '@/hooks/usePaging'
+import { FAS } from '@/service/address'
+import { TwMessageBox } from '@/components/message/messagebox'
+import { alarmsDelete, transferAlarm } from '@/service/fas/alarms'
+
+import { MoreFilled } from '@element-plus/icons-vue'
+import ClosingCase from './components/ClosingCase.vue'
+import { handleRes } from '@/utils/common'
+import { ElMessage } from 'element-plus'
+import useEnum from '@/hooks/useEnum'
+import useCustomCycle from '@/hooks/useCustomCycle'
+
+import DisasterLeave from '@/components/text/DisasterLeave.vue'
+import AlarmStatus from '@/views/handleAlarm/components/AlarmStatus.vue'
+import { ALARM_STATUS } from '@/store/dic'
+const [disasterTypeDic, disasterLevelDic] = useEnum(['disaster_type', 'disaster_level'])
+
+const alarmStatusArr = computed(() => {
+  const arr = []
+  for (const key in ALARM_STATUS) {
+    arr.push({ label: (ALARM_STATUS as any)[key], value: key })
+  }
+  return arr
+})
+
+const clickRow = ref({} as any)
+
+const showClosingCase = ref(false as boolean)
+const { loading, searchParams, query, searchResult, getList, onSizeChange, search, reset } = usePaging({
+  url: FAS + '/alarms/pages',
+})
+
+// const activeName = ref('first' as string)
+
+const router = useRouter()
+
+const submitClosingCase = () => {
+  search()
+  showClosingCase.value = false
+}
+
+const handleCommand = (e: any) => {
+  const fnMap: any = {
+    goToDispatch: (row: any) => {
+      router.push(`/handleAlarm/dispatch/${row.id}`)
+    },
+    goToDispatchRecord: (row: any) => {
+      router.push(`/handleAlarm/dispatch/record/${row.id}`)
+    },
+    // 结案
+    closingCase: (row: any) => {
+      clickRow.value = row
+      showClosingCase.value = true
+    },
+    // 删除
+    deleteAlarm: (row: any) => {
+      TwMessageBox.confirm(' 确定删除您选择的警情吗 ', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+        async beforeClose(action, instance, done) {
+          if (action === 'confirm') {
+            instance.confirmButtonLoading = true
+            const res = await alarmsDelete(row.id)
+            instance.confirmButtonLoading = false
+            handleRes(res, {
+              success: () => {
+                search()
+                ElMessage({
+                  message: '删除成功',
+                  type: 'success',
+                })
+                done()
+              },
+            })
+          } else {
+            done()
+          }
+        },
+      })
+    },
+  }
+  fnMap[e.event] && fnMap[e.event](e.data)
+}
+
+onMounted(() => {
+   reset()
+})
+</script>
+
+<style lang="less" scoped></style>
