@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>图标/多色图标/记录板</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="92.0138889%" y2="95.4350312%" id="linearGradient-1">
+            <stop stop-color="#71B6FF" offset="0%"></stop>
+            <stop stop-color="#71B6FF" offset="0%"></stop>
+            <stop stop-color="#2666E4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="84.7222222%" y2="95.4350312%" id="linearGradient-2">
+            <stop stop-color="#7EBCFF" offset="0%"></stop>
+            <stop stop-color="#81ABFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="27.9577814%" y1="42.7437642%" x2="32.5932976%" y2="57.2562358%" id="linearGradient-3">
+            <stop stop-color="#DBECFF" offset="0%"></stop>
+            <stop stop-color="#CEDEFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.800000012">
+        <g id="南宁非现场监督小程序-待处理工作表" transform="translate(-276.000000, -333.000000)">
+            <g id="编组" transform="translate(20.000000, 237.000000)">
+                <g id="组件/检查统计" transform="translate(20.000000, 76.000000)">
+                    <g id="编组-9" transform="translate(226.000000, 0.000000)">
+                        <g id="图标/多色图标/检查任务" transform="translate(10.000000, 20.000000)">
+                            <g id="编组-2" transform="translate(10.666667, 5.333333)">
+                                <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="5.33333333" width="58.6666667" height="64" rx="7.11111111"></rect>
+                                <rect id="矩形" fill="url(#linearGradient-2)" x="7.11111111" y="10.6666667" width="44.4444444" height="53.3333333" rx="3.55555556"></rect>
+                                <path d="M33.6884399,53.5147186 C33.6884399,54.987478 32.4945326,56.1813853 31.0217733,56.1813853 L13.4226712,56.1813853 C11.9499118,56.1813853 10.7560045,54.987478 10.7560045,53.5147186 C10.7560045,52.0419593 11.9499118,50.848052 13.4226712,50.848052 L31.0217733,50.848052 C32.4945326,50.848052 33.6884399,52.0419593 33.6884399,53.5147186 Z M46.2222222,26.4852814 C46.2222222,27.9580407 45.0283149,29.151948 43.5555556,29.151948 L13.4226712,29.151948 C11.9499118,29.151948 10.7560045,27.9580407 10.7560045,26.4852814 C10.7560045,25.012522 11.9499118,23.8186147 13.4226712,23.8186147 L43.5555556,23.8186147 C45.0283149,23.8186147 46.2222222,25.012522 46.2222222,26.4852814 Z M46.2222222,40 C46.2222222,41.4727593 45.0283149,42.6666667 43.5555556,42.6666667 L13.4226712,42.6666667 C11.9499118,42.6666667 10.7560045,41.4727593 10.7560045,40 C10.7560045,38.5272407 11.9499118,37.3333333 13.4226712,37.3333333 L43.5555556,37.3333333 C45.0283149,37.3333333 46.2222222,38.5272407 46.2222222,40 Z" id="形状结合" fill="#D5E7FF" fill-rule="nonzero"></path>
+                                <rect id="矩形" fill="url(#linearGradient-3)" x="10.6666667" y="0" width="37.3333333" height="14.2222222" rx="7.11111111"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

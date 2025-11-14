@@ -1,0 +1,113 @@
+{
+  "pages": [
+    {
+      "path": "pages/task/index",
+      "type": "home",
+      "name": "task"
+    },
+    {
+      "path": "pages/auth/index",
+      "type": "page",
+      "name": "auth"
+    },
+    {
+      "path": "pages/base/switch1",
+      "type": "page"
+    },
+    {
+      "path": "pages/base/switch2",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/index",
+      "type": "page",
+      "name": "index"
+    },
+    {
+      "path": "pages/info/index",
+      "type": "page",
+      "name": "info"
+    },
+    {
+      "path": "pages/login/index",
+      "type": "page",
+      "name": "login",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationBarTitleText": "维保管理系统",
+    "backgroundColor": "@bgColor",
+    "backgroundTextStyle": "@bgTxtStyle",
+    "backgroundColorTop": "@bgColorTop",
+    "backgroundColorBottom": "@bgColorBottom",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 50,
+    "animationType": "pop-in",
+    "animationDuration": 300,
+    "rpxCalcBaseDeviceWidth": 750,
+    "dynamicRpx": true
+  },
+  "tabBar": {
+    "custom": true,
+    "height": "0",
+    "color": "@tabColor",
+    "selectedColor": "@tabSelectedColor",
+    "backgroundColor": "@tabBgColor",
+    "borderStyle": "@tabBorderStyle",
+    "list": [
+      {
+        "pagePath": "pages/base/switch1"
+      },
+      {
+        "pagePath": "pages/base/switch2"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "subPages",
+      "pages": [
+        {
+          "path": "styles/index",
+          "type": "page",
+          "name": "styles",
+          "style": {
+            "navigationBarTitleText": "UnoCSS 演示"
+          }
+        }
+      ]
+    },
+    {
+      "root": "subEcharts",
+      "pages": [
+        {
+          "path": "echarts/index",
+          "type": "page",
+          "name": "echarts",
+          "style": {
+            "navigationBarTitleText": "Echarts 演示"
+          }
+        }
+      ]
+    },
+    {
+      "root": "subAsyncEcharts",
+      "pages": [
+        {
+          "path": "asyncEcharts/index",
+          "type": "page",
+          "name": "echartsAsync",
+          "style": {
+            "navigationBarTitleText": "echarts 异步跨包示例"
+          }
+        }
+      ]
+    }
+  ]
+}

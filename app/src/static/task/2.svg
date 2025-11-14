@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>图标/多色图标/日历</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F1AA5B" offset="0%"></stop>
+            <stop stop-color="#F0AD00" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="57.9478448%" y1="1.43564931%" x2="57.9478448%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFE1C4" offset="0%"></stop>
+            <stop stop-color="#FFF6EE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="57.9478448%" y1="1.43564931%" x2="57.9478448%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFD9B5" offset="0%"></stop>
+            <stop stop-color="#FFE6CE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0.438428759%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#FFCD98" offset="0%"></stop>
+            <stop stop-color="#FFDD8E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#FFCD98" offset="0.438428759%"></stop>
+            <stop stop-color="#FFDD8E" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.800000012">
+        <g id="南宁非现场监督小程序-待处理工作表" transform="translate(-50.000000, -333.000000)" fill-rule="nonzero">
+            <g id="编组" transform="translate(20.000000, 237.000000)">
+                <g id="组件/检查统计" transform="translate(20.000000, 76.000000)">
+                    <g id="矩形" transform="translate(10.000000, 20.000000)">
+                        <path d="M13.3333333,14.6666667 L66.6666667,14.6666667 C69.2439955,14.6666667 71.3333333,16.7560045 71.3333333,19.3333333 L71.3333333,68.6666667 C71.3333333,71.2439955 69.2439955,73.3333333 66.6666667,73.3333333 L13.3333333,73.3333333 C10.7560045,73.3333333 8.66666667,71.2439955 8.66666667,68.6666667 L8.66666667,19.3333333 C8.66666667,16.7560045 10.7560045,14.6666667 13.3333333,14.6666667 Z" fill="url(#linearGradient-1)"></path>
+                        <path d="M15.3333333,28 L64.6666667,28 C66.139426,28 67.3333333,29.1939073 67.3333333,30.6666667 L67.3333333,66.6666667 C67.3333333,68.139426 66.139426,69.3333333 64.6666667,69.3333333 L15.3333333,69.3333333 C13.860574,69.3333333 12.6666667,68.139426 12.6666667,66.6666667 L12.6666667,30.6666667 C12.6666667,29.1939073 13.860574,28 15.3333333,28 Z" fill="#FFC471"></path>
+                        <rect fill="url(#linearGradient-2)" x="34" y="46.6666667" width="12" height="9.33333333" rx="2.66666667"></rect>
+                        <rect fill="url(#linearGradient-3)" x="50" y="46.6666667" width="12" height="9.33333333" rx="2.66666667"></rect>
+                        <rect fill="url(#linearGradient-2)" x="18" y="46.6666667" width="12" height="9.33333333" rx="2.66666667"></rect>
+                        <rect fill="url(#linearGradient-2)" x="50" y="33.3333333" width="12" height="9.33333333" rx="2.66666667"></rect>
+                        <rect fill="url(#linearGradient-2)" x="34" y="33.3333333" width="12" height="9.33333333" rx="2.66666667"></rect>
+                        <rect fill="url(#linearGradient-2)" x="18" y="33.3333333" width="12" height="9.33333333" rx="2.66666667"></rect>
+                        <path d="M26.6666667,6.66666667 C29.6121853,6.66666667 32,9.05448133 32,12 L32,18.6666667 C32,21.6121853 29.6121853,24 26.6666667,24 C23.721148,24 21.3333333,21.6121853 21.3333333,18.6666667 L21.3333333,12 C21.3333333,9.05448133 23.721148,6.66666667 26.6666667,6.66666667 Z" fill="url(#linearGradient-4)"></path>
+                        <path d="M53.3333333,6.66666667 C56.278852,6.66666667 58.6666667,9.05448133 58.6666667,12 L58.6666667,18.6666667 C58.6666667,21.6121853 56.278852,24 53.3333333,24 C50.3878147,24 48,21.6121853 48,18.6666667 L48,12 C48,9.05448133 50.3878147,6.66666667 53.3333333,6.66666667 Z" fill="url(#linearGradient-5)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

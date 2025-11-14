@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="324px" height="324px" viewBox="0 0 324 324" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 2</title>
+    <defs>
+        <linearGradient x1="50%" y1="2.46519033e-30%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#00FF7F" stop-opacity="0.120023287" offset="0%"></stop>
+            <stop stop-color="#00FF7F" stop-opacity="0.084076568" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="33.2881434%" cy="5.84597808%" fx="33.2881434%" fy="5.84597808%" r="98.6944447%" gradientTransform="translate(0.332881,0.058460),rotate(72.553086),scale(1.000000,1.816096),translate(-0.332881,-0.058460)" id="radialGradient-2">
+            <stop stop-color="#3AF099" offset="0%"></stop>
+            <stop stop-color="#77FFBE" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <circle id="path-3" cx="160" cy="161" r="132"></circle>
+        <filter x="-11.6%" y="-6.6%" width="123.1%" height="123.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="13" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0886361242   0 0 0 0 0.889411816   0 0 0 0 0.489562625  0 0 0 0.232736014 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="南宁非现场监督小程序-首页-维保中" transform="translate(-213.000000, -611.000000)">
+            <g id="编组-2" transform="translate(215.000000, 613.000000)">
+                <circle id="椭圆形" stroke="#D8FFEB" stroke-width="3" fill-rule="nonzero" cx="160" cy="160" r="160"></circle>
+                <circle id="椭圆形" fill="url(#linearGradient-1)" fill-rule="nonzero" cx="160" cy="161" r="144"></circle>
+                <g id="椭圆形" fill-rule="nonzero">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#00B474" xlink:href="#path-3"></use>
+                    <use fill="url(#radialGradient-2)" xlink:href="#path-3"></use>
+                </g>
+                <g id="编组" transform="translate(72.000000, 103.000000)"></g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,83 @@
+/*
+ * @Author: huanghuanrong
+ * @Date: 2025-10-31 11:18:47
+ * @LastEditTime: 2025-11-07 18:51:19
+ * @LastEditors: huanghuanrong
+ * @Description: 文件描述
+ * @FilePath: \app\vite.config.ts
+ */
+import process from 'node:process'
+import { defineConfig } from 'vite'
+import Uni from '@dcloudio/vite-plugin-uni'
+import UniHelperManifest from '@uni-helper/vite-plugin-uni-manifest'
+import UniHelperPages from '@uni-helper/vite-plugin-uni-pages'
+import UniHelperLayouts from '@uni-helper/vite-plugin-uni-layouts'
+import UniHelperComponents from '@uni-helper/vite-plugin-uni-components'
+import AutoImport from 'unplugin-auto-import/vite'
+import { WotResolver } from '@uni-helper/vite-plugin-uni-components/resolvers'
+import UniKuRoot from '@uni-ku/root'
+import { UniEchartsResolver } from 'uni-echarts/resolver'
+import { UniEcharts } from 'uni-echarts/vite'
+import Optimization from '@uni-ku/bundle-optimizer'
+
+export default async () => {
+  const UnoCSS = (await import('unocss/vite')).default
+
+  return defineConfig({
+    optimizeDeps: {
+      exclude: process.env.NODE_ENV === 'development' ? ['wot-design-uni', 'uni-echarts'] : [],
+    },
+    plugins: [
+      UniHelperManifest(),
+      UniHelperPages({
+        homePage: 'pages/task/index',
+        dts: 'src/uni-pages.d.ts',
+        subPackages: [
+          'src/subPages',
+          'src/subEcharts',
+          'src/subAsyncEcharts',
+        ],
+        /**
+         * 排除的页面，相对于 dir 和 subPackages
+         * @default []
+         */
+        exclude: ['**/components/**/*.*'],
+      }),
+      // https://github.com/uni-helper/vite-plugin-uni-layouts
+      UniHelperLayouts(),
+      // https://github.com/uni-helper/vite-plugin-uni-components
+      UniHelperComponents({
+        resolvers: [WotResolver(), UniEchartsResolver()],
+        dts: 'src/components.d.ts',
+        dirs: ['src/components', 'src/business'],
+        directoryAsNamespace: true,
+      }),
+      // https://github.com/uni-ku/root
+      UniKuRoot(),
+      // https://uni-echarts.xiaohe.ink
+      UniEcharts(),
+      Uni(),
+      // https://github.com/uni-ku/bundle-optimizer
+      Optimization({
+        logger: true,
+      }),
+      // https://github.com/antfu/unplugin-auto-import
+      AutoImport({
+        imports: ['vue', '@vueuse/core', 'pinia', 'uni-app', {
+          from: 'uni-mini-router',
+          imports: ['createRouter', 'useRouter', 'useRoute'],
+        }, {
+          from: 'wot-design-uni',
+          imports: ['useToast', 'useMessage', 'useNotify', 'CommonUtil'],
+        }, {
+          from: 'alova/client',
+          imports: ['usePagination', 'useRequest'],
+        }],
+        dts: 'src/auto-imports.d.ts',
+        dirs: ['src/composables', 'src/store', 'src/utils', 'src/api'],
+        vueTemplate: true,
+      }),
+      UnoCSS(),
+    ],
+  })
+}

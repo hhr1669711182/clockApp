@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>图标/多色图标/已完成</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="91.903067%" y2="95.1832981%" id="linearGradient-1">
+            <stop stop-color="#71FFE3" offset="0%"></stop>
+            <stop stop-color="#00A8C1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="84.0249655%" y2="93.518601%" id="linearGradient-2">
+            <stop stop-color="#7EFFF5" offset="0%"></stop>
+            <stop stop-color="#00CDAF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="27.9577814%" y1="42.7437642%" x2="32.5932976%" y2="57.2562358%" id="linearGradient-3">
+            <stop stop-color="#CBFFEC" offset="0%"></stop>
+            <stop stop-color="#E4FFF6" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.800000012">
+        <g id="南宁非现场监督小程序-待处理工作表" transform="translate(-502.000000, -333.000000)">
+            <g id="编组" transform="translate(20.000000, 237.000000)">
+                <g id="组件/检查统计" transform="translate(20.000000, 76.000000)">
+                    <g id="编组-2" transform="translate(452.000000, 0.000000)">
+                        <g id="图标/多色图标/已完成" transform="translate(10.000000, 20.000000)">
+                            <g id="编组-2" transform="translate(10.666667, 5.333333)">
+                                <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="5.33333333" width="58.6666667" height="64" rx="7.11111111"></rect>
+                                <rect id="矩形" fill="url(#linearGradient-2)" x="7.11111111" y="10.6666667" width="44.4444444" height="53.3333333" rx="3.55555556"></rect>
+                                <path d="M20.4443111,30.2222222 L20.444,36.444 L20.444,36.444 L42.6666667,36.4443968 C44.1394337,36.4444231 45.3333333,37.6383441 45.3333333,39.1111111 C45.3333333,40.5838704 44.139426,41.7777778 42.6666667,41.7777778 L17.1111111,41.7777778 C16.0065416,41.7777778 15.1111111,40.8823473 15.1111111,39.7777778 L15.1111111,30.2222222 C15.1111111,28.7494629 16.3050184,27.5555556 17.7777778,27.5555556 C19.2504635,27.5555556 20.4443111,28.7494032 20.4443111,30.2220889 C20.4443111,30.2221333 20.4443111,30.2221778 20.4443111,30.2222222 Z" id="路径" fill="#DFFFF4" fill-rule="nonzero" transform="translate(30.222222, 34.666667) rotate(-45.000000) translate(-30.222222, -34.666667) "></path>
+                                <rect id="矩形" fill="url(#linearGradient-3)" x="10.6666667" y="0" width="37.3333333" height="14.2222222" rx="7.11111111"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

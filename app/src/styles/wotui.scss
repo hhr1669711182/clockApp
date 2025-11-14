@@ -1,0 +1,27 @@
+// 导航栏主题配置
+html {
+  --wot-navbar-color: #48668D;
+  --wot-navbar-title-font-size: 40rpx;
+  --wot-navbar-title-font-weight: 400;
+  --wot-navbar-arrow-size: 48rpx;
+  // 背景色
+  --wot-navbar-bg: #ffffff;
+  // 文字颜色
+  --wot-navbar-active-bg: #f0f0f0;
+  // 激活项文字颜色
+  --wot-navbar-active-text-color: #1890ff;
+  // 悬停背景色
+  --wot-navbar-hover-bg: #fafafa;
+  // 边框颜色
+  --wot-navbar-border-color: #e8e8e8;
+  // 高度
+  --wot-navbar-height: 60px;
+  // Logo 宽度
+  --wot-navbar-logo-width: 180px;
+  // 菜单项间距
+  --wot-navbar-item-gap: 8px;
+  // 字体大小
+  --wot-navbar-font-size: 14px;
+  // 字体粗细
+  --wot-navbar-font-weight: 500;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="726px" height="890px" viewBox="0 0 726 890" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <path d="M62,342 L424.106918,342 C438.289684,342 451.411995,349.510253 458.595923,361.738991 L495.404077,424.395132 C502.588005,436.62387 515.710316,444.134124 529.893082,444.134124 L688,444.134124 C705.673112,444.134124 720,458.461012 720,476.134124 L720,1172 C720,1185.25483 709.254834,1196 696,1196 L54,1196 C40.745166,1196 30,1185.25483 30,1172 L30,374 C30,356.326888 44.326888,342 62,342 Z" id="path-1"></path>
+        <filter x="-4.9%" y="-2.3%" width="109.9%" height="108.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="14" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0626155932   0 0 0 0 0.110453   0 0 0 0 0.238019418  0 0 0 0.0555083786 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="南宁非现场监督小程序-登录页" transform="translate(-12.000000, -338.000000)" fill-rule="nonzero">
+            <g id="矩形">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
